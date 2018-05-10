@@ -5833,6 +5833,11 @@ esac
 case "$target" in
     "msm8998")
 
+        # Set the default IRQ affinity to the primary cluster. When a
+        # CPU is isolated/hotplugged, the IRQ affinity is adjusted
+        # to one of the CPU from the default IRQ affinity mask.
+        echo f > /proc/irq/default_smp_affinity
+
         # disable thermal bcl hotplug to switch governor
         echo 0 > /sys/module/msm_thermal/core_control/enabled
 
