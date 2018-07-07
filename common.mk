@@ -76,6 +76,10 @@ PRODUCT_COPY_FILES += \
 # Haters gonna hate..
 PRODUCT_CHARACTERISTICS := nosdcard
 
+# Alert Slider
+PRODUCT_PACKAGES += \
+    tri-state-key_daemon
+
 # Audio
 PRODUCT_PACKAGES += \
     android.hardware.audio@6.0-impl:32 \
