@@ -79,6 +79,7 @@ PRODUCT_CHARACTERISTICS := nosdcard
 
 # Alert Slider
 PRODUCT_PACKAGES += \
+    TriStateHandler \
     tri-state-key_daemon
 
 # Audio

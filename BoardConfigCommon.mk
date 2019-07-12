@@ -83,6 +83,10 @@ TARGET_SCREEN_DENSITY := 420
 # DRM
 TARGET_ENABLE_MEDIADRM_64 := true
 
+# Gestures
+TARGET_GESTURES_NODE := "/proc/touchpanel/gesture_enable"
+TARGET_TAP_TO_WAKE_NODE := "/proc/touchpanel/double_tap_enable"
+
 # GPS
 LOC_HIDL_VERSION := 4.0
 
