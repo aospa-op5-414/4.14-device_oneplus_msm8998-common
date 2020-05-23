@@ -197,7 +197,8 @@ PRODUCT_PACKAGES += \
 
 # Init
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/etc/init.class_main.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.class_main.sh
+    $(LOCAL_PATH)/rootdir/etc/init.class_main.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.class_main.sh \
+    $(LOCAL_PATH)/rootdir/etc/init.qcom.post_boot.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.qcom.post_boot.sh
 
 PRODUCT_PACKAGES += \
     fstab.qcom \
@@ -288,7 +289,10 @@ PRODUCT_PACKAGES += \
 
 # Perf
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/perf/perfconfigstore.xml:$(TARGET_COPY_OUT_VENDOR)/etc/perf/perfconfigstore.xml
+    $(LOCAL_PATH)/configs/perf/perfboostsconfig.xml:$(TARGET_COPY_OUT_VENDOR)/etc/perf/perfboostsconfig.xml \
+    $(LOCAL_PATH)/configs/perf/perfconfigstore.xml:$(TARGET_COPY_OUT_VENDOR)/etc/perf/perfconfigstore.xml \
+    $(LOCAL_PATH)/configs/perf/targetresourceconfigs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/perf/targetresourceconfigs.xml
+
 
 # Privapp Whitelist
 PRODUCT_COPY_FILES += \
