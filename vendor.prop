@@ -103,6 +103,7 @@ persist.vendor.radio.enableadvancedscan=false
 persist.vendor.radio.flexmap_type=none
 persist.vendor.radio.force_on_dc=true
 persist.vendor.radio.ignore_dom_time=10
+persist.vendor.radio.mt_sms_ack=30
 ro.telephony.iwlan_operation_mode=legacy
 
 # Sensors
