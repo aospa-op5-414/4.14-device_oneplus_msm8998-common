@@ -23,6 +23,9 @@ vendor.qcom.devup                      u:object_r:vendor_device_prop:s0
 # Mediacodec
 gpu.stats.debug.level                  u:object_r:vendor_video_prop:s0
 
+#MWQEM
+persist.vendor.mwqem.                  u:object_r:vendor_mwqem_prop:s0
+
 # RIL
 persist.sys.assert.panic               u:object_r:radio_control_prop:s0
 persist.sys.oem.region                 u:object_r:radio_control_prop:s0
