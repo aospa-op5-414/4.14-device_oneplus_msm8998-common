@@ -73,6 +73,17 @@ vendor.qcom.bluetooth.soc=cherokee
 # Camera
 vendor.camera.aux.packagelist=com.android.camera,com.oneplus.camera,org.codeaurora.snapcam,org.lineageos.snap
 
+# Dalvik
+pm.dexopt.ab-ota=speed-profile
+dalvik.vm.dex2oat-filter=speed
+dalvik.vm.image-dex2oat-filter=speed
+ro.vendor.qti.am.reschedule_service=true
+ro.sys.fw.dex2oat_thread_count=8
+dalvik.vm.boot-dex2oat-threads=8
+dalvik.vm.dex2oat-threads=4
+dalvik.vm.dex2oat64.enabled=true
+dalvik.vm.image-dex2oat-threads=4
+
 # Data
 persist.vendor.data.iwlan.enable=true
 
