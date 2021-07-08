@@ -180,6 +180,9 @@ PRODUCT_PACKAGES += \
     libhwbinder.vendor
 
 # Init
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rootdir/etc/init.class_main.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.class_main.sh
+
 PRODUCT_PACKAGES += \
     fstab.qcom \
     init.devstart.sh \
