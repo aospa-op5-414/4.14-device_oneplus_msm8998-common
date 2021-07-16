@@ -51,69 +51,98 @@ vendor/lib/rfsa/adsp/libsns_low_lat_stream_skel.so
 vendor/lib/rfsa/adsp/libvpp_frc.so
 vendor/lib/rfsa/adsp/libvpp_svc_skel.so
 
-# Audio
-vendor/lib/libacdb-fts.so
-vendor/lib/libacdbloader.so
-vendor/lib/libacdbrtac.so
-vendor/lib/libadiertac.so
-vendor/lib/libadm.so
-vendor/lib/libaudcal.so
-vendor/lib/libaudioalsa.so
-vendor/lib/libaudioparsers.so
-vendor/lib/libdrc.so
-vendor/lib/libqtigef.so
-vendor/lib64/libacdb-fts.so
-vendor/lib64/libacdbloader.so
-vendor/lib64/libacdbrtac.so
-vendor/lib64/libadiertac.so
-vendor/lib64/libaudcal.so
-vendor/lib64/libaudioalsa.so
-vendor/lib64/libaudioparsers.so
-vendor/lib64/libqtigef.so
+# Audio - from LA.UM.9.11.r1-03900-NICOBAR.0
+vendor/lib/libAlacSwDec.so|1d074a0415ee358cd13c981e35266cff4c6863ce
+vendor/lib/libApeSwDec.so|ce425ef9372ed6635e313422b3578f77b90ff526
+vendor/lib/libFlacSwDec.so|01c7a51d93c2fe447e23c1210832b39b171393e3
+vendor/lib/libOmxAlacDecSw.so|150f1fee193918792a88797766ddf12d1a388efd
+vendor/lib/libOmxApeDecSw.so|f3e64e54808f57f146173532335ea45db1fb54f4
+vendor/lib/libOmxDsdDec.so|f74936badeb8303b2bb17475b9cd157b1c81131c
+vendor/lib/libOmxEvrcDec.so|90bbf4baf4f8b830534a2f94aedef9bd44e81a13
+vendor/lib/libOmxQcelp13Dec.so|1836ba707a7a1642ec0edf236be0e713f18bb90b
+vendor/lib/libadm.so|7a1cfba258a1ca590011c2529f620b2db822acc7
+vendor/lib/libdrc.so|b066f176f119847059c5aa148f73e1b042fbeab3
+vendor/lib64/libAlacSwDec.so|9fbfad65ffca33e1ac480e9cb056467ac75a6d5a
+vendor/lib64/libApeSwDec.so|76d3cc02ca1c3cdc3c71e57dc6e53027d2bf3d37
+vendor/lib64/libFlacSwDec.so|002aa39927e75568efb81c7ae3a044c694babfc3
+vendor/lib64/libOmxAlacDecSw.so|3ecf891368d0ad84903b792303ef841dc24f91c1
+vendor/lib64/libOmxApeDecSw.so|6ec15cb9a251a35e7f7d427dcf0b0e945825518f
+vendor/lib64/libOmxEvrcDec.so|5e3562bdc1195c22a4a029931b745a6af7362ef2
+vendor/lib64/libOmxQcelp13Dec.so|2c9039f7a6a11056a15d7d71f1cf551b5835ec93
 
-# Audio FX modules
-etc/permissions/audiosphere.xml
-framework/audiosphere.jar
-vendor/lib/soundfx/libasphere.so
-vendor/lib64/soundfx/libasphere.so
+# Audio - from LA.UM.9.11.r1-03900-NICOBAR.0
+vendor/lib/libOmxAacDec.so|45601d4ee1cca75ad5112f24a535ff1a57e5dc73
+vendor/lib/libOmxAlacDec.so|64c73e28208db51f486ee3ce44febf4ab5990d71
+vendor/lib/libOmxAmrDec.so|e2a32cf28571c11d378dc362864605b54f46e0f3
+vendor/lib/libOmxAmrwbplusDec.so|f775988582690c33da72c203eafeb3279828699d
+vendor/lib/libOmxApeDec.so|741544678f2da737e2dab519bb1a15dc1b110763
+vendor/lib/libOmxG711Dec.so|141c325b61960dd40a80598f7cfd7014f2b68be4
+vendor/lib/libOmxWmaDec.so|b45c9b1d76a8e1153f011c0e355c7f40365c6012
+vendor/lib/libaudioparsers.so|d7062a1f8b178f37cf8c428c35839ae7b8099ca6
+vendor/lib/libhdmipassthru.so|22c48c53f7e3d185127b09b53b9938dc86628881
+vendor/lib/libqtigef.so|c50ba3a32c83b89da03466c2c253a1498c12f033
+vendor/lib64/libOmxAacDec.so|852a708984d3016173a338c3b9562967e89ffa67
+vendor/lib64/libOmxAlacDec.so|936a8f0dab44cc5d082562c69f77ab8e062288ea
+vendor/lib64/libOmxAmrDec.so|772c88f7a6966ca33c648751c0b75fcba4a94298
+vendor/lib64/libOmxAmrwbplusDec.so|4e3e594c21b3e19a21b4c2c07f7ee21c72b41eaf
+vendor/lib64/libOmxApeDec.so|a5275b879545e4f51193f1df120ba3c172be7a7e
+vendor/lib64/libOmxG711Dec.so|613758adf67ad64b26668e7328302d468162c1ef
+vendor/lib64/libOmxWmaDec.so|6d9a3fc14b95b7cabc26f8b7300623aa9e8c1323
+vendor/lib64/libaudioparsers.so|a5c8bcbabe79e608f266472be768ff83560d9ec4
+vendor/lib64/libhdmipassthru.so|9cee461644371acaef9835fab9b4e1a6c771d407
+vendor/lib64/libqtigef.so|9b1019985f2ca2ef680826792a72d1dfec300277
 
-# Bluetooth - from LA.UM.9.12.r1-13300-SMxx50.QSSI12.0
-vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti|b0f73b4ac1a88607ec90b514b9602de423bb9be6
+# Audio ACDB - from LA.UM.9.11.r1-03900-NICOBAR.0
+vendor/lib/libacdb-fts.so|f935ba15c28a7ad8bd90b924d685a329411304f2
+vendor/lib/libacdbloader.so|56981a4591e5cd6f92d4b122d56209d7d5f4298f
+vendor/lib/libacdbrtac.so|059dc0a271672810dea56f3850f07efe3f14edce
+vendor/lib/libadiertac.so|f6d8a52429c200f81fc5568777873842647d3cba
+vendor/lib/libaudcal.so|1601a510278568511e7a813b77e37d9b2651e312
+vendor/lib64/libacdb-fts.so|c2cc9423914df1b593b15dc8afe2f7387394c55e
+vendor/lib64/libacdbloader.so|cb53b8d5f55e7bd7263c1455987e6b818efb11ad
+vendor/lib64/libacdbrtac.so|f891d9663d22b7c505f03bc34a9b45f051f8c931
+vendor/lib64/libadiertac.so|b68e47a15378929bed25add3505cf30d759c2392
+vendor/lib64/libaudcal.so|4e8858c584b09359e4b84af68a01a6604a9ac07c
+
+# Audio FX modules - from LA.UM.9.11.r1-03900-NICOBAR.0
+vendor/lib/soundfx/libasphere.so|b2daeb875914a33575c7d7a67429f25d09d35489
+vendor/lib/soundfx/libqcbassboost.so|7cde03c823dedc2fe4b8f4241e86720219b3e556
+vendor/lib/soundfx/libqcreverb.so|daf4c7cbc3a2830729b06d01388dad010fff568b
+vendor/lib/soundfx/libqcvirt.so|e175f74aff7b3c9b350fd7a7527c37edd0e1107e
+vendor/lib64/soundfx/libasphere.so|b9296f601776e631be0f347f8f10d26689103d12
+vendor/lib64/soundfx/libqcbassboost.so|3ef54d9f5fe102978284fbc5466d23e5882523ae
+vendor/lib64/soundfx/libqcreverb.so|08311069d7eb881dffddc2d337fab11e1fdffac8
+vendor/lib64/soundfx/libqcvirt.so|93f20635c721a5425436fba94b48a3f3c9c0cff6
+
+# Bluetooth - from LA.QSSI.12.0.r1-04300.02-qssi.0
+vendor/lib/vendor.qti.hardware.bluetooth_sar@1.0.so|3783f35af4e00ccb210920aa480036ebe8a96ca5
+vendor/lib/vendor.qti.hardware.bluetooth_sar@1.1.so|022ec33bd100ac8e53ec8216d8a7b3ddb89865b7
+vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.0.so|ead5f1c7effcb664b0a41096333f4212c139a6bc
+vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.1.so|b0ca0a3b05432813ab31a6d5d12c8298c56798c3
+
+# Bluetooth - from LA.UM.9.11.r1-03900-NICOBAR.0
+vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti|ca5ce24bfc340ea3fb33ea7e2ce1ae0554a05f4e
 vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc|f4ee3b2da2b08647447869ade86ec63f7340accc
-vendor/lib/hw/android.hardware.bluetooth@1.0-impl-qti.so|0d411a568b73ce8792d28f959954e48a41207e04
-vendor/lib/hw/audio.bluetooth_qti.default.so|6ce26888f5b67e3e211a7cfe11554d842162ae07
-vendor/lib/hw/com.dsi.ant@1.0-impl.so|fa12fdaeb9d7f162ff14edcad57963f771f3002f
-vendor/lib/hw/vendor.qti.hardware.bluetooth_audio@2.0-impl.so|7d9503fce83522d27bcdae531a4e0b320281f85f
-vendor/lib/hw/vendor.qti.hardware.bluetooth_audio@2.1-impl.so|a83e30d60645db71d5fcb57ef1dd708af95ed662
-vendor/lib/hw/vendor.qti.hardware.bluetooth_sar@1.1-impl.so|6a950eaa3066fcba19e1d94a04e5823059a951a8
-vendor/lib/hw/vendor.qti.hardware.btconfigstore@1.0-impl.so|de18f44f36a89f8fb8c8b6f5d2e0bff73acaabea
-vendor/lib/hw/vendor.qti.hardware.btconfigstore@2.0-impl.so|b2d984f5f0ed37f70b63a22d4d351d38b5c5e372
-vendor/lib/hw/vendor.qti.hardware.fm@1.0-impl.so|a1edbfda86d8a7fa74ee48e0c715609f717e4434
-vendor/lib/btaudio_offload_if.so|d0d65c2b38fc69d14cd6af3c8652ef91f37bb06a
-vendor/lib/libbluetooth_audio_session_qti_2_1.so|b894e2e3768c2f3d6a21fae79a92663822e53450
-vendor/lib/libbluetooth_audio_session_qti.so|0b306bac29ba1beff74c9e84785f0e77efb4402c
-vendor/lib/libbt-hidlclient.so|2648e2161b8423073a6449a4ec72b3fb33123e7a
-vendor/lib/libbtnv.so|887149605c2f810e9e996354d24d2fdd39d13e5c
-vendor/lib/vendor.qti.hardware.bluetooth_sar@1.0.so|e88e66e2cf121f1baa8ee55f2f628e32ed5ac6eb
-vendor/lib/vendor.qti.hardware.bluetooth_sar@1.1.so|f355a8187ee30c03da8cca04a9a78542b8f1d9f4
-vendor/lib/vendor.qti.hardware.fm@1.0.so|6e0acce313956c08b964a0e24ffe1ffeb6448b01
-vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so|292ab29cc50ed31cc2263e8283705c27f78d3c4c
-vendor/lib64/hw/audio.bluetooth_qti.default.so|e7f73d58e5f2a8ba9bb6aad8c5637c10841b066b
-vendor/lib64/hw/com.dsi.ant@1.0-impl.so|ecdf9f24262c49031c470b14a27d3f99d2b47ff4
-vendor/lib64/hw/vendor.qti.hardware.bluetooth_audio@2.0-impl.so|e30c268c385d3a75f86969e70c91410d2ab8b5bb
-vendor/lib64/hw/vendor.qti.hardware.bluetooth_audio@2.1-impl.so|a36dad6cac456b033e34e98945281284d52d8304
-vendor/lib64/hw/vendor.qti.hardware.bluetooth_sar@1.1-impl.so|6afb681f9876d632c1369b11672a46e5d56b28c7
-vendor/lib64/hw/vendor.qti.hardware.btconfigstore@1.0-impl.so|473f93f5d500186121d4b844b388a83e1e22297d
-vendor/lib64/hw/vendor.qti.hardware.btconfigstore@2.0-impl.so|91fc2e9d2560ff260e83f044d0dd05ab50dfa9ad
-vendor/lib64/hw/vendor.qti.hardware.fm@1.0-impl.so|e043798aa070393e050f5cb487d7e4e91f654a30
-vendor/lib64/btaudio_offload_if.so|1d84be386b199db827d7b86c2dd70daa0e116224
-vendor/lib64/libbluetooth_audio_session_qti_2_1.so|1a24b6a9badc091f61389f0a122523eff6eab08e
-vendor/lib64/libbluetooth_audio_session_qti.so|5bd4b55dc98a0e67200ff5e84196667390e1a0e7
-vendor/lib64/libbt-hidlclient.so|13e7ae0f423841ea5d6b722446acad3bbebf89ee
-vendor/lib64/libbtnv.so|7973f6eeaa23f85709682e6fca66d589f514563d
-vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.0.so|52b83b6f371a49d866276aabc5d6bda4faa400b6
-vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.1.so|8d098cef4c4442f9aa2c64389be5eba32003dcce
-vendor/lib64/vendor.qti.hardware.fm@1.0.so|19fcbfe03d4b6304af9b01b89ab8fc6f9968d87b
+vendor/lib/btaudio_offload_if.so|a559b82ee5c44282421a9d482eac7c44017c3fb6
+vendor/lib/hw/android.hardware.bluetooth@1.0-impl-qti.so|82fb524817114606f5cc0509fce06ab9518cd1c3
+vendor/lib/hw/audio.bluetooth_qti.default.so|89e10eb06d567af1d48211210ac83eb75188ef83
+vendor/lib/hw/com.dsi.ant@1.0-impl.so|64f9923d87f4c7505670e680cf190e1bc6343d54
+vendor/lib/hw/vendor.qti.hardware.bluetooth_audio@2.1-impl.so|053e7e7bb30495138b6ac451d494139177757e72
+vendor/lib/hw/vendor.qti.hardware.bluetooth_sar@1.1-impl.so|93a6cc9df6043e4459421af0014d785183f2cae6
+vendor/lib/hw/vendor.qti.hardware.btconfigstore@2.0-impl.so|7fc5b71cc7c916f26e95ca3b39d8dd238a9beea1
+vendor/lib/libbluetooth_audio_session_qti.so|83a81aa86245241dc8b26970c6726c6f9be1adc1
+vendor/lib/libbluetooth_audio_session_qti_2_1.so|445b55a9238f065978178c597af6d60e1a2a3f39
+vendor/lib/libbtnv.so|8df3aa18b16434d778b35e8bcf1aa6ea558bdfbf
+vendor/lib64/btaudio_offload_if.so|c83416f5c71c6a47c533c8bce159f8ecdd798934
+vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so|1eb72a63d452764d62aef8d66c6a4ac04db1da0a
+vendor/lib64/hw/audio.bluetooth_qti.default.so|336ebc6d137e38551b2552b44dac9242a8942f98
+vendor/lib64/hw/com.dsi.ant@1.0-impl.so|47d7e30288b303c106b9a06b882adb8a29349be2
+vendor/lib64/hw/vendor.qti.hardware.bluetooth_audio@2.1-impl.so|26a05746376d948744562bac81a84f820ea96d65
+vendor/lib64/hw/vendor.qti.hardware.bluetooth_sar@1.1-impl.so|b6eb8281e04c144a2fad8258e7c046f6d17b34e3
+vendor/lib64/hw/vendor.qti.hardware.btconfigstore@2.0-impl.so|319bd23f7b434b1244845200295074b4d059076c
+vendor/lib64/libbluetooth_audio_session_qti.so|2c16d8900fe83417dc06bc9bbe9f68b41048c7ad
+vendor/lib64/libbluetooth_audio_session_qti_2_1.so|922d966c5d85a674ad706e5591c33709562138d3
+vendor/lib64/libbtnv.so|d29cf0f65d3ae1f01fa68a45659a75926fda8bc0
 
 # Camera
 vendor/lib/libDeVIS.so
@@ -583,41 +612,6 @@ vendor/lib/libadpcmdec.so
 vendor/lib/libmulawdec.so
 vendor/lib/libsmwrapper.so
 
-# Media - from LA.UM.8.2.r1-07500-sdm660.0
-vendor/lib/libAlacSwDec.so|d082d6eeedd8a84bd1b720d515ede48e74392dd4
-vendor/lib/libApeSwDec.so|12c5bfd798a14114a58e55c0713e8e238ccbb83f
-vendor/lib/libFlacSwDec.so|ad62260c534b60df028f5c5741086592aad7e220
-vendor/lib/libOmxAacDec.so|08ab281625ecadee2f0c387149f843fcd7b2a5df
-vendor/lib/libOmxAlacDec.so|3f0c5c0ac49fed7922b55f0a94b9acccda4702b1
-vendor/lib/libOmxAlacDecSw.so|6bec19c7c1cac2036480b04e3fb998f473433e08
-vendor/lib/libOmxAmrDec.so|25012de558cb8bfb217f53fefae173751e5286a1
-vendor/lib/libOmxAmrwbplusDec.so|82c0454bf7b9b5a6e7fe426ea9711f5730d551b8
-vendor/lib/libOmxApeDec.so|84350471bfe3ac5b05a6e0ec4dad67a9fc97d9d2
-vendor/lib/libOmxApeDecSw.so|515cba101287c9a753b32cb29f415c0b48abeed9
-vendor/lib/libOmxDsdDec.so|1793f853c171f2317187df2cebefe07d17417c3d
-vendor/lib/libOmxEvrcDec.so|0f67c5690e4b761a8ddade3c3e35b24e37682463
-vendor/lib/libOmxG711Dec.so|de0d8b8aae70de89c351ab8b706592abfe9847d0
-vendor/lib/libOmxQcelp13Dec.so|7b68992a36e0c6e0bdc288359bdb8f950cec34ef
-vendor/lib/libOmxVideoDSMode.so|aed737d08a40d1cde828fde2925b69949c69640e
-vendor/lib/libOmxWmaDec.so|e1f2c2ed81495296f7c0146be5bf0e2530e44317
-vendor/lib/libOmxVpp.so|d28cb810c7ff3b738e12ba944c05552fb0c96c2f
-vendor/lib/libvqzip.so|224d6ed62e52b470d9821b99e59c0857609870a5
-vendor/lib64/libAlacSwDec.so|6e0e351d24c3b7b848f2923cf7d69d3e63ec9800
-vendor/lib64/libApeSwDec.so|c6853b37276ab4d26956d54e477b801f10216693
-vendor/lib64/libFlacSwDec.so|ed4d15211dcdb839acc0effc0c450ad549ad659d
-vendor/lib64/libOmxAacDec.so|bbc92bee08c6e78189932faaaac47a4ebd6083a1
-vendor/lib64/libOmxAlacDec.so|c844e689c624b592b1617bc73014438a77d9f7bc
-vendor/lib64/libOmxAlacDecSw.so|a6dfca665cfddf529ba89ff982cc88eb70d9a2b8
-vendor/lib64/libOmxAmrDec.so|0008dfa2008b6387a67442329ac0b2b249a80543
-vendor/lib64/libOmxAmrwbplusDec.so|2b7dfa4a182c1a379282b0d39868a3209d78b07c
-vendor/lib64/libOmxApeDec.so|eb7f51ffe2dccf8e4deb8818d1a72d71036d3a50
-vendor/lib64/libOmxApeDecSw.so|22ea70b7a4f7eed4e399f8b85a73be6859e247f3
-vendor/lib64/libOmxEvrcDec.so|638f432a9de04c7195f1b62d9cf6c9de4314d182
-vendor/lib64/libOmxG711Dec.so|0a94e28f0b70e2bd8924f5aecc926ccb4a8a49e9
-vendor/lib64/libOmxQcelp13Dec.so|d8bb8a5c999a2f2e3a7e717d422ab43c90ab9028
-vendor/lib64/libOmxWmaDec.so|8f8ef46403b739859f97f1fe54dff8c30b57cebb
-vendor/lib64/libOmxVpp.so|fa72a070edf2b447189a8460d27acf202f39ff3a
-
 # Misc
 vendor/etc/graphite_ipc_platform_info.xml
 vendor/lib/libgcs-calwrapper.so
@@ -629,9 +623,9 @@ vendor/lib64/libgcs-ipc.so
 vendor/lib64/libgcs-osal.so
 vendor/lib64/libgcs.so
 
-# MMOSAL - from LA.UM.9.6.2.r1-03600-89xx.0
-vendor/lib/libmmosal.so|e23d6d1b2a035c08ffd7ac72d5241ebff37f0d14
-vendor/lib64/libmmosal.so|e9fdb48163e92b089cea0c397723a8416436c272
+# MMOSAL - from LA.QSSI.12.0.r1-04300.02-qssi.0
+vendor/lib/libmmosal.so|4f6e649e91fdb2fb85c61f5c90dad157c6bf23ea
+vendor/lib64/libmmosal.so|f8dc8360fb650c15e698bc8dced077c95b942c02
 
 # NFC
 vendor/lib/libpn553_fw.so
