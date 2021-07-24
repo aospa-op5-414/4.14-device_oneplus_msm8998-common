@@ -657,12 +657,14 @@ vendor/lib64/vendor.qti.hardware.qteeconnector@1.0.so|8c7e2bebeeb0a45737b1c38b19
 # Radio
 etc/permissions/qcnvitems.xml:product/etc/permissions/qcnvitems.xml
 framework/qcnvitems.jar:product/framework/qcnvitems.jar
+vendor/bin/hw/qcrild
 vendor/bin/ATFWD-daemon
 vendor/bin/netmgrd
 vendor/bin/rmt_storage
 vendor/bin/tftp_server
 vendor/etc/data/dsi_config.xml
 vendor/etc/data/netmgr_config.xml
+vendor/etc/init/qcrild.rc
 -vendor/lib/libqsocket.so
 vendor/lib/vendor.qti.hardware.radio.am@1.0.so
 vendor/lib/vendor.qti.hardware.radio.atcmdfwd@1.0.so
@@ -690,6 +692,7 @@ vendor/lib64/libnlnetmgr.so
 vendor/lib64/libpdmapper.so
 vendor/lib64/libpdnotifier.so
 vendor/lib64/libqcmaputils.so
+vendor/lib64/libqcrildatactl.so
 vendor/lib64/libqcrilFramework.so
 -vendor/lib64/libqsocket.so
 vendor/lib64/libril-qc-hal-qmi.so
@@ -701,6 +704,8 @@ vendor/lib64/librilqmiservices.so
 vendor/lib64/libsettings.so
 vendor/lib64/libsystem_health_mon.so
 vendor/lib64/qcrild_librilutils.so
+vendor/lib64/qtimutex.so
+vendor/lib64/qtibus.so
 vendor/lib64/vendor.qti.hardware.radio.am@1.0.so
 vendor/lib64/vendor.qti.hardware.radio.atcmdfwd@1.0.so
 vendor/lib64/vendor.qti.hardware.radio.internal.deviceinfo@1.0.so
