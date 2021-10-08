@@ -803,12 +803,10 @@ vendor/lib64/libtzdrmgenprov.so|1105403905ff4665ce619f6ea2eede131771bf96
 # Sensors
 lib/libqmi_cci_system.so
 lib/libsdsprpc_system.so
-lib/libsensorservice.so
 lib/libsensor1.so
 lib/libsensor_reg_system.so
 lib64/libqmi_cci_system.so
 lib64/libsdsprpc_system.so
-lib64/libsensorservice.so
 lib64/libsensor1.so
 lib64/libsensor_reg_system.so
 product/framework/vendor.qti.hardware.sensorscalibrate-V1.0-java.jar
