@@ -27,7 +27,7 @@
 
 LOCAL_PATH := $(call my-dir)
 
-ifneq ($(filter cheeseburger dumpling,$(TARGET_DEVICE)),)
+ifneq ($(filter oneplus5 oneplus5t,$(TARGET_DEVICE)),)
 
 include $(call all-makefiles-under,$(LOCAL_PATH))
 

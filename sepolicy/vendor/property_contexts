@@ -18,6 +18,4 @@ gpu.stats.debug.level                  u:object_r:vendor_video_prop:s0
 # Thermal
 sys.thermal.                           u:object_r:thermal_engine_prop:s0
 
-vendor.powerhal.                       u:object_r:vendor_power_prop:s0
-
 vendor.qcom.devup                      u:object_r:vendor_device_prop:s0

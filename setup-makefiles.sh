@@ -8,6 +8,9 @@
 
 set -e
 
+DEVICE_COMMON=msm8998-common
+VENDOR=oneplus
+
 # Load extract_utils and do some sanity checks
 MY_DIR="${BASH_SOURCE%/*}"
 if [[ ! -d "${MY_DIR}" ]]; then MY_DIR="${PWD}"; fi
@@ -25,7 +28,7 @@ source "${HELPER}"
 setup_vendor "${DEVICE_COMMON}" "${VENDOR}" "${ANDROID_ROOT}" true
 
 # Warning headers and guards
-write_headers "cheeseburger dumpling"
+write_headers "oneplus5 oneplus5t"
 
 # The standard common blobs
 write_makefiles "${MY_DIR}/proprietary-files.txt" true

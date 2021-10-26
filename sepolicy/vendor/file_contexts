@@ -21,25 +21,12 @@
 /(product|system/product)/(lib|lib64)/vendor\.display\.config@1\.[0-9]\.so                       u:object_r:same_process_hal_file:s0
 /(product|system/product)/(lib|lib64)/vendor\.qti\.hardware\.camera\.device@1\.0\.so             u:object_r:same_process_hal_file:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service-custom    u:object_r:hal_fingerprint_default_exec:s0
-/(vendor|system/vendor)/bin/hw/android\.hardware\.light@2\.0-service\.oneplus_msm8998            u:object_r:hal_light_default_exec:s0
-/(vendor|system/vendor)/bin/hw/android\.hardware\.power-service\.oneplus_msm8998-libperfmgr      u:object_r:hal_power_default_exec:s0
-/(vendor|system/vendor)/bin/hw/vendor\.lineage\.livedisplay@2\.0-service\.oneplus_msm8998        u:object_r:hal_livedisplay_oneplus_msm8998_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.oneplus\.hardware\.drmkey@1\.0-service                    u:object_r:hal_drm_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.oneplus\.hardware\.ifaa@2\.0-service                      u:object_r:hal_ifaa_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.oneplus\.hardware\.param@1\.0-service                     u:object_r:hal_param_default_exec:s0
 
 # Init
 /(vendor|system/vendor)/bin/init\.devstart\.sh                  u:object_r:init-devstart-sh_exec:s0
-
-# LiveDisplay
-/sys/devices/virtual/graphics/fb0/adaption_mode                 u:object_r:sysfs_livedisplay_tuneable:s0
-/sys/devices/virtual/graphics/fb0/adobe_rgb                     u:object_r:sysfs_livedisplay_tuneable:s0
-/sys/devices/virtual/graphics/fb0/dci_p3                        u:object_r:sysfs_livedisplay_tuneable:s0
-/sys/devices/virtual/graphics/fb0/hbm                           u:object_r:sysfs_livedisplay_tuneable:s0
-/sys/devices/virtual/graphics/fb0/night_mode                    u:object_r:sysfs_livedisplay_tuneable:s0
-/sys/devices/virtual/graphics/fb0/oneplus_mode                  u:object_r:sysfs_livedisplay_tuneable:s0
-/sys/devices/virtual/graphics/fb0/panel_serial_number           u:object_r:sysfs_livedisplay_tuneable:s0
-/sys/devices/virtual/graphics/fb0/srgb                          u:object_r:sysfs_livedisplay_tuneable:s0
 
 # Power supply
 /sys/devices/soc/.*ssusb/power_supply/usb(/.*)?                 u:object_r:sysfs_usb_supply:s0
