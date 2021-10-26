@@ -183,9 +183,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     fstab.qcom \
     init.devstart.sh \
-    init.qcom.rc \
+    init.target.rc \
     init.radio.sh \
-    ueventd.qcom.rc
+    ueventd.oneplus.rc
 
 # IRSC
 PRODUCT_COPY_FILES += \
@@ -273,6 +273,7 @@ TARGET_COMMON_QTI_COMPONENTS := \
     av \
     display \
     gps \
+    init \
     perf \
     telephony \
     usb \
