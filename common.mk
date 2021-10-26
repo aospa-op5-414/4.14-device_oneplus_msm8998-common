@@ -207,13 +207,6 @@ PRODUCT_PACKAGES += \
     init.radio.sh \
     ueventd.qcom.rc
 
-# IFAA (Fingerprint support for Alipay)
-PRODUCT_PACKAGES += \
-    org.ifaa.android.manager
-
-PRODUCT_BOOT_JARS += \
-    org.ifaa.android.manager
-
 # IRSC
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sec_config:$(TARGET_COPY_OUT_VENDOR)/etc/sec_config
