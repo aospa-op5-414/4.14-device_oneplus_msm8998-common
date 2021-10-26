@@ -294,15 +294,12 @@ PRODUCT_PACKAGES += \
     libprotobuf-cpp-full-vendorcompat \
     libprotobuf-cpp-lite-vendorcompat
 
-# QMI
-PRODUCT_PACKAGES += \
-    libjson
-
 # QTI common
 TARGET_COMMON_QTI_COMPONENTS := \
     adreno-legacy \
     gps \
     perf \
+    telephony \
     usb \
     vibrator
 
@@ -317,16 +314,8 @@ PRODUCT_PACKAGES += \
 # RIL - IMS
 PRODUCT_PACKAGES += \
     CarrierConfigOverlay \
-    ims-ext-common \
-    ims_ext_common.xml \
-    librmnetctl \
     libxml2 \
-    libprotobuf-cpp-full \
-    qti-telephony-hidl-wrapper \
-    qti_telephony_hidl_wrapper.xml \
-    qti-telephony-utils \
-    qti_telephony_utils.xml \
-    telephony-ext
+    libprotobuf-cpp-full
 
 # Seccomp policy
 PRODUCT_COPY_FILES += \
@@ -344,11 +333,6 @@ PRODUCT_SHIPPING_API_LEVEL := 25
 # Soong
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
-
-# Tetheroffload
-PRODUCT_PACKAGES += \
-    ipacm \
-    IPACM_cfg.xml
 
 # Verity
 PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/bootdevice/by-name/system
