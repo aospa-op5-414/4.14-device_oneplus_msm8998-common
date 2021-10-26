@@ -290,6 +290,7 @@ PRODUCT_PACKAGES += \
 # QTI common
 TARGET_COMMON_QTI_COMPONENTS := \
     adreno-legacy \
+    av \
     gps \
     perf \
     telephony \
