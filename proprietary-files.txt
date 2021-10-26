@@ -702,10 +702,6 @@ vendor/lib64/ls_client.so
 vendor/lib64/vendor.nxp.eventprocessor@1.0.so
 vendor/lib64/vendor.qti.esepowermanager@1.0.so
 
-# Perf
-vendor/bin/energy-awareness
-vendor/bin/msm_irqbalance
-
 # Peripheral manager
 vendor/bin/pm-proxy
 vendor/bin/pm-service
