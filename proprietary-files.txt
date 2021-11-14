@@ -555,6 +555,10 @@ vendor/lib64/libgcs-ipc.so
 vendor/lib64/libgcs-osal.so
 vendor/lib64/libgcs.so
 
+# MMOSAL - from LA.UM.9.6.2.r1-03600-89xx.0
+vendor/lib/libmmosal.so|e23d6d1b2a035c08ffd7ac72d5241ebff37f0d14
+vendor/lib64/libmmosal.so|e9fdb48163e92b089cea0c397723a8416436c272
+
 # NFC
 vendor/lib/libpn553_fw.so
 
