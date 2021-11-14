@@ -478,6 +478,9 @@ vendor/firmware/a540_zap.mdt
 vendor/lib/libqseed3.so
 vendor/lib64/libqseed3.so
 
+# Graphics - from LA.UM.9.6.2.r1-03600-89xx.0
+vendor/lib64/libtinyxml.so|1fc14ef18aa90ddf62e7ced53da91d1bc264e47b
+
 # IPA
 vendor/firmware/ipa_fws.b00
 vendor/firmware/ipa_fws.b01
