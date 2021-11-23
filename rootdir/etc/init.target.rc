@@ -268,6 +268,10 @@ on boot
     chmod 0660 /sys/devices/soc/soc:fpc_fpc1020/hw_reset
     chown system system /sys/devices/soc/soc:fpc_fpc1020/hw_reset
 
+    # NFC, ruanbanmao add for 15801 nfc. 2015/10/19
+    chmod 0666 /dev/pn54x
+    chown nfc nfc /dev/pn54x
+
     # Goodix Fingerprint (oneplus5t)
     chmod 0666 /dev/goodix_fp
 
