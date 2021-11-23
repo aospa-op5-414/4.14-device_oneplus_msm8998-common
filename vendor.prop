@@ -88,9 +88,11 @@ persist.vendor.radio.aosp_usr_pref_sel=true
 persist.vendor.radio.bar_fake_gcell=1
 persist.vendor.radio.data_con_rprt=1
 persist.vendor.radio.data_ltd_sys_ind=1
+persist.vendor.radio.enableadvancedscan=false
 persist.vendor.radio.flexmap_type=none
 persist.vendor.radio.force_on_dc=true
 persist.vendor.radio.ignore_dom_time=10
+ro.telephony.iwlan_operation_mode=legacy
 
 # Sensors
 ro.vendor.sensors.dev_ori=true
