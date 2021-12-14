@@ -219,13 +219,13 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.keymaster@3.0.vendor
 
+# Lights
+PRODUCT_PACKAGES += \
+    android.hardware.light@2.0-service.oneplus_msm8998
+
 # Low power Whitelist
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/qti_whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/qti_whitelist.xml
-
-# Lights
-PRODUCT_PACKAGES += \
-    lights.msm8998
 
 # Media
 PRODUCT_COPY_FILES += \
