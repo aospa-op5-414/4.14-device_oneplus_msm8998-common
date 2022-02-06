@@ -301,11 +301,26 @@ PRODUCT_PACKAGES += \
     libxml2 \
     libprotobuf-cpp-full
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.vendor.data.iwlan.enable=true \
+    persist.vendor.radio.enableadvancedscan=false \
+    persist.vendor.radio.mt_sms_ack=30 \
+    ro.telephony.iwlan_operation_mode=legacy
+
 # Sensors
 PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-impl:64 \
     android.hardware.sensors@1.0-service \
     libsensorndkbridge
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.sensors.dev_ori=true \
+    ro.vendor.sensors.pmd=true \
+    ro.vendor.sensors.sta_detect=true \
+    ro.vendor.sensors.mot_detect=true \
+    ro.vendor.sensors.dpc=true \
+    ro.vendor.sensors.multishake=true \
+    persist.vendor.sensors.direct_channel=true
 
 # SOC Properties
 PRODUCT_PROPERTY_OVERRIDES += \

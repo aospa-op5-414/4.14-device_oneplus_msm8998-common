@@ -11,6 +11,7 @@ camera.disable_zsl_mode=1
 persist.camera.gyro.disable=0
 persist.camera.mobicat=2
 persist.camera.stats.debugexif=3080192
+vendor.camera.aux.packagelist=com.android.camera,com.oneplus.camera,org.codeaurora.snapcam
 
 # Charger
 ro.charger.disable_init_blank=true
@@ -24,6 +25,7 @@ ro.frp.pst=/dev/block/bootdevice/by-name/config
 
 # Media
 media.stagefright.thumbnail.prefer_hw_codecs=true
+vendor.vidc.debug.level=1
 
 # System
 persist.sys.binary_xml=false
