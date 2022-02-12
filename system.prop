@@ -25,10 +25,6 @@ ro.frp.pst=/dev/block/bootdevice/by-name/config
 # Media
 media.stagefright.thumbnail.prefer_hw_codecs=true
 
-# RIL
-ro.com.android.dataroaming=true
-ro.telephony.default_network=22,20
-
 # System
 persist.sys.binary_xml=false
 

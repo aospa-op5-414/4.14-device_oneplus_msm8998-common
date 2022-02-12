@@ -1,14 +1,3 @@
-# Bluetooth
-persist.bluetooth.a2dp_offload.cap=sbc-aac-aptx-aptxhd-ldac
-persist.bluetooth.a2dp_offload.disabled=false
-persist.vendor.bt.a2dp_offload_cap=sbc-aptx-aptxhd-aac
-persist.vendor.qcom.bluetooth.a2dp_offload_cap=sbc-aptx-aptxhd-aac-ldac
-persist.vendor.qcom.bluetooth.enable.splita2dp=true
-persist.vendor.qcom.bluetooth.soc=cherokee
-ro.bluetooth.a2dp_offload.supported=true
-ro.vendor.bluetooth.wipower=false
-vendor.qcom.bluetooth.soc=cherokee
-
 # Camera
 vendor.camera.aux.packagelist=com.android.camera,com.oneplus.camera,org.codeaurora.snapcam,org.lineageos.snap
 
@@ -33,15 +22,7 @@ vendor.vidc.debug.level=1
 ro.vendor.qti.va_aosp.support=1
 
 # RIL
-persist.vendor.radio.add_power_save=1
-persist.vendor.radio.aosp_usr_pref_sel=true
-persist.vendor.radio.bar_fake_gcell=1
-persist.vendor.radio.data_con_rprt=1
-persist.vendor.radio.data_ltd_sys_ind=1
 persist.vendor.radio.enableadvancedscan=false
-persist.vendor.radio.flexmap_type=none
-persist.vendor.radio.force_on_dc=true
-persist.vendor.radio.ignore_dom_time=10
 persist.vendor.radio.mt_sms_ack=30
 ro.telephony.iwlan_operation_mode=legacy
 
@@ -53,10 +34,6 @@ ro.vendor.sensors.mot_detect=true
 ro.vendor.sensors.dpc=true
 ro.vendor.sensors.multishake=true
 persist.vendor.sensors.direct_channel=true
-
-# Soc
-ro.soc.manufacturer=Qualcomm
-ro.soc.model=MSM8998
 
 # Timeservice
 persist.vendor.delta_time.enable=true
