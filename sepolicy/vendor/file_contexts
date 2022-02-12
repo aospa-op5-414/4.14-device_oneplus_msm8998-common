@@ -16,7 +16,7 @@
 /dev/dash                                                       u:object_r:dash_device:s0
 
 # Fingerprint
-/sys/devices/soc/soc:fingerprint_detect/sensor_version          u:object_r:sysfs_fpc:s0
+/sys/devices/platform/soc/soc:fingerprint_detect/sensor_version          u:object_r:sysfs_fpc:s0
 /data/system/users/0/fpdata(/.*)?                               u:object_r:fingerprintd_data_file:s0
 
 # HALs
@@ -27,18 +27,22 @@
 /(vendor|system/vendor)/bin/init\.devstart\.sh                  u:object_r:init-devstart-sh_exec:s0
 
 # Power supply
-/sys/devices/soc/.*ssusb/power_supply/usb(/.*)?                 u:object_r:sysfs_usb_supply:s0
-/sys/devices/soc/800f000\.qcom,spmi/spmi-0/spmi0-02/800f000\.qcom,spmi:qcom,pmi8998@2:qcom,qpnp-smb2/power_supply/main(/.*)?       u:object_r:sysfs_usb_supply:s0
-/sys/devices/soc/800f000\.qcom,spmi/spmi-0/spmi0-02/800f000\.qcom,spmi:qcom,pmi8998@2:qcom,qpnp-smb2/power_supply/usb(/.*)?        u:object_r:sysfs_usb_supply:s0
-/sys/devices/soc/800f000\.qcom,spmi/spmi-0/spmi0-02/800f000\.qcom,spmi:qcom,pmi8998@2:qcom,qpnp-smb2/power_supply/battery(/.*)?    u:object_r:sysfs_battery_supply:s0
-/sys/devices/soc/800f000\.qcom,spmi/spmi-0/spmi0-02/800f000\.qcom,spmi:qcom,pmi8998@2:qcom,qpnp-smb2/power_supply/dc(/.*)?         u:object_r:sysfs_battery_supply:s0
-/sys/devices/soc/800f000\.qcom,spmi/spmi-0/spmi0-02/800f000\.qcom,spmi:qcom,pmi8998@2:qpnp,fg/power_supply/bms(/.*)?               u:object_r:sysfs_battery_supply:s0
+/sys/devices/platform/soc/.*ssusb/power_supply/usb(/.*)?                 u:object_r:sysfs_usb_supply:s0
+/sys/devices/platform/soc/800f000\.qcom,spmi/spmi-0/spmi0-02/800f000\.qcom,spmi:qcom,pmi8998@2:qcom,qpnp-smb2/power_supply/main(/.*)?       u:object_r:sysfs_usb_supply:s0
+/sys/devices/platform/soc/800f000\.qcom,spmi/spmi-0/spmi0-02/800f000\.qcom,spmi:qcom,pmi8998@2:qcom,qpnp-smb2/power_supply/pc_port(/.*)?    u:object_r:sysfs_usb_supply:s0
+/sys/devices/platform/soc/800f000\.qcom,spmi/spmi-0/spmi0-02/800f000\.qcom,spmi:qcom,pmi8998@2:qcom,qpnp-smb2/power_supply/usb(/.*)?        u:object_r:sysfs_usb_supply:s0
+/sys/devices/platform/soc/800f000\.qcom,spmi/spmi-0/spmi0-02/800f000\.qcom,spmi:qcom,pmi8998@2:qcom,qpnp-smb2/power_supply/battery(/.*)?    u:object_r:sysfs_battery_supply:s0
+/sys/devices/platform/soc/800f000\.qcom,spmi/spmi-0/spmi0-02/800f000\.qcom,spmi:qcom,pmi8998@2:qcom,qpnp-smb2/power_supply/dc(/.*)?         u:object_r:sysfs_battery_supply:s0
+/sys/devices/platform/soc/800f000\.qcom,spmi/spmi-0/spmi0-02/800f000\.qcom,spmi:qcom,pmi8998@2:qpnp,fg/power_supply/bms(/.*)?               u:object_r:sysfs_battery_supply:s0
 
 # Ril
 /(vendor|system/vendor)/bin/init\.radio\.sh                     u:object_r:init-radio-sh_exec:s0
 
 # Root symlink
 /persist                                                        u:object_r:mnt_vendor_file:s0
+
+# Vibrator
+/sys/devices/platform/soc/800f000\.qcom,spmi/spmi-0/spmi0-03/800f000\.qcom,spmi:qcom,pmi8998@3:qcom,haptics@c000/leds/vibrator(/.*)?        u:object_r:sysfs_leds:s0
 
 # Wifi
 /data/vendor/oemnvitems/4678_0                                  u:object_r:oem_nv_data_file:s0
