@@ -26,6 +26,19 @@ prebuilt_etc {
     vendor: true,
 }
 
+prebuilt_etc {
+    name: "init.oneplus.perf.rc",
+    src: "init.oneplus.perf.rc",
+    sub_dir: "init",
+    vendor: true,
+}
+
+sh_binary {
+    name: "init.oneplus.post_boot.sh",
+    src: "init.oneplus.post_boot.sh",
+    vendor: true,
+}
+
 sh_binary {
     name: "init.radio.sh",
     src: "etc/init.radio.sh",

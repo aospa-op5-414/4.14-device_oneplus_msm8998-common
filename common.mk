@@ -166,15 +166,19 @@ PRODUCT_PACKAGES += \
 
 # Init
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/etc/init.class_main.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.class_main.sh \
-    $(LOCAL_PATH)/rootdir/etc/init.qcom.post_boot.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.qcom.post_boot.sh
+    $(LOCAL_PATH)/rootdir/etc/init.class_main.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.class_main.sh
 
 PRODUCT_PACKAGES += \
     fstab.qcom \
     init.devstart.sh \
+    init.oneplus.perf.rc \
+    init.oneplus.post_boot.sh \
     init.target.rc \
     init.radio.sh \
     ueventd.oneplus.rc
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    vendor.post_boot.custom=true
 
 # IRSC
 PRODUCT_COPY_FILES += \
