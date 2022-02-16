@@ -25,66 +25,17 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-on early-init
-    mount debugfs debugfs /sys/kernel/debug
-    chmod 0755 /sys/kernel/debug
-
 on init
     write /sys/module/qpnp_rtc/parameters/poweron_alarm 1
 
     # Disable UFS powersaving
-    write /sys/devices/soc/${ro.boot.bootdevice}/clkscale_enable 0
-    write /sys/devices/soc/${ro.boot.bootdevice}/clkgate_enable 0
-    write /sys/module/lpm_levels/parameters/sleep_disabled Y
-
-    # disable thermal hotplug for configuration
-    write /sys/module/msm_thermal/core_control/enabled 0
-
-    # bring CPUs online
-    write /sys/devices/system/cpu/cpu0/online 1
-    write /sys/devices/system/cpu/cpu1/online 1
-    write /sys/devices/system/cpu/cpu2/online 1
-    write /sys/devices/system/cpu/cpu3/online 1
-    write /sys/devices/system/cpu/cpu4/online 1
-    write /sys/devices/system/cpu/cpu5/online 1
-    write /sys/devices/system/cpu/cpu6/online 1
-    write /sys/devices/system/cpu/cpu7/online 1
-
-    # configure governor settings for little cluster
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "schedutil"
-    write /sys/devices/system/cpu/cpufreq/policy0/schedutil/up_rate_limit_us 500
-    write /sys/devices/system/cpu/cpufreq/policy0/schedutil/down_rate_limit_us 20000
-
-    # configure governor settings for big cluster
-    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor "schedutil"
-    write /sys/devices/system/cpu/cpufreq/policy4/schedutil/up_rate_limit_us 500
-    write /sys/devices/system/cpu/cpufreq/policy4/schedutil/down_rate_limit_us 20000
-
-    # Set boottime stune value
-    write /dev/stune/schedtune.prefer_idle 1
-    write /dev/stune/schedtune.boost 100
+    write /sys/devices/platform/soc/${ro.boot.bootdevice}/clkscale_enable 0
+    write /sys/devices/platform/soc/${ro.boot.bootdevice}/clkgate_enable 0
 
     # set default schedTune value for foreground/top-app
     write /dev/stune/foreground/schedtune.prefer_idle 1
     write /dev/stune/top-app/schedtune.boost 10
     write /dev/stune/top-app/schedtune.prefer_idle 1
-
-    # CPU is configured, re-enable thermal core control
-    write /sys/module/msm_thermal/core_control/enabled 1
-
-    # Setup power retention
-    write /sys/module/lpm_levels/system/pwr/cpu0/ret/idle_enabled N
-    write /sys/module/lpm_levels/system/pwr/cpu1/ret/idle_enabled N
-    write /sys/module/lpm_levels/system/pwr/cpu2/ret/idle_enabled N
-    write /sys/module/lpm_levels/system/pwr/cpu3/ret/idle_enabled N
-    write /sys/module/lpm_levels/system/perf/cpu4/ret/idle_enabled N
-    write /sys/module/lpm_levels/system/perf/cpu5/ret/idle_enabled N
-    write /sys/module/lpm_levels/system/perf/cpu6/ret/idle_enabled N
-    write /sys/module/lpm_levels/system/perf/cpu7/ret/idle_enabled N
-    write /sys/module/lpm_levels/system/pwr/pwr-l2-dynret/idle_enabled N
-    write /sys/module/lpm_levels/system/pwr/pwr-l2-ret/idle_enabled N
-    write /sys/module/lpm_levels/system/perf/perf-l2-dynret/idle_enabled N
-    write /sys/module/lpm_levels/system/perf/perf-l2-ret/idle_enabled N
 
     # create necessary cpusets
     mkdir /dev/cpuset/camera-daemon 0750 cameraserver cameraserver
@@ -92,33 +43,6 @@ on init
     write /dev/cpuset/camera-daemon/mems 0
     chown cameraserver cameraserver /dev/cpuset/camera-daemon/tasks
     chmod 0660 /dev/cpuset/camera-daemon/tasks
-
-    # Enable bus-dcvs
-    write /sys/class/devfreq/soc:qcom,cpubw/governor "bw_hwmon"
-    write /sys/class/devfreq/soc:qcom,cpubw/polling_interval 50
-    write /sys/class/devfreq/soc:qcom,cpubw/min_freq 1525
-    write /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/mbps_zones "3143 5859 11863 13763"
-    write /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/sample_ms 4
-    write /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/io_percent 34
-    write /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/hist_memory 20
-    write /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/hyst_length 10
-    write /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/low_power_ceil_mbps 0
-    write /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/low_power_io_percent 34
-    write /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/low_power_delay 20
-    write /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/guard_band_mbps 0
-    write /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/up_scale 250
-    write /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/idle_mbps 1600
-
-    # Configure memory latencies
-    write /sys/class/devfreq/soc:qcom,memlat-cpu0/governor "mem_latency"
-    write /sys/class/devfreq/soc:qcom,memlat-cpu0/polling_interval 10
-    write /sys/class/devfreq/soc:qcom,memlat-cpu0/mem_latency/ratio_ceil 400
-
-    write /sys/class/devfreq/soc:qcom,memlat-cpu4/governor "mem_latency"
-    write /sys/class/devfreq/soc:qcom,memlat-cpu4/polling_interval 10
-    write /sys/class/devfreq/soc:qcom,memlat-cpu4/mem_latency/ratio_ceil 400
-
-    write /sys/class/devfreq/soc:qcom,mincpubw/governor "cpufreq"
 
     # Setup all the sub-system as related
     write /sys/bus/msm_subsys/devices/subsys0/restart_level RELATED
@@ -207,25 +131,10 @@ on post-fs-data
     # Radio
     mkdir /data/vendor/oemnvitems 0771 radio radio
 
-    # Bluetooth
-    mkdir /data/vendor/bluetooth 0770 bluetooth bluetooth
-
-    # create netmgr log dir
-    mkdir /data/vendor/netmgr 0770 radio radio
-
-    # Create directory used by the DASH client
-    mkdir /data/misc/dash 0770 media audio
-
-    # Create directory used by audio subsystem
-    mkdir /data/vendor/audio/ 0770 media audio
-
     # Trigger WLAN driver load
     write /sys/kernel/boot_wlan/boot_wlan 1
 
 on early-boot
-    # set RLIMIT_MEMLOCK to 64MB
-    setrlimit 8 67108864 67108864
-
     # wait for devices
     wait_for_prop vendor.qcom.devup 1
 
@@ -233,40 +142,31 @@ on boot
     chown system system /sys/kernel/boot_adsp/ssr
 
     # Create QMUX deamon socket area
-    mkdir /dev/socket/qmux_radio 2770 radio radio
     mkdir /dev/socket/qmux_audio 2770 media audio
     mkdir /dev/socket/qmux_bluetooth 2770 bluetooth bluetooth
     mkdir /dev/socket/qmux_gps 2770 gps gps
-
-    # Create NETMGR daemon socket area
-    mkdir /dev/socket/netmgr 0750 radio radio
-
-    # Assign TCP buffer thresholds to be ceiling value of technology maximums
-    # Increased technology maximums should be reflected here.
-    write /proc/sys/net/core/rmem_max  16777216
-    write /proc/sys/net/core/wmem_max  8388608
 
     # Set the console loglevel to < KERN_INFO
     # Set the default message loglevel to KERN_INFO
     write /proc/sys/kernel/printk "6 6 1 7"
 
     # Fingerprint detect
-    chmod 0660 /sys/devices/soc/soc:fingerprint_detect/sensor_version
-    chown system system /sys/devices/soc/soc:fingerprint_detect/sensor_version
+    chmod 0660 /sys/devices/platform/soc/soc:fingerprint_detect/sensor_version
+    chown system system /sys/devices/platform/soc/soc:fingerprint_detect/sensor_version
 
     # FPC Fingerprint (oneplus5)
-    chmod 0664 /sys/devices/soc/soc:fpc_fpc1020/irq
-    chown system system /sys/devices/soc/soc:fpc_fpc1020/irq
-    chmod 0660 /sys/devices/soc/soc:fpc_fpc1020/report_home
-    chown system system /sys/devices/soc/soc:fpc_fpc1020/report_home
-    chmod 0660 /sys/devices/soc/soc:fpc_fpc1020/report_key
-    chown system system /sys/devices/soc/soc:fpc_fpc1020/report_key
-    chmod 0660 /sys/devices/soc/soc:fpc_fpc1020/update_info
-    chown system system /sys/devices/soc/soc:fpc_fpc1020/update_info
-    chmod 0660 /sys/devices/soc/soc:fpc_fpc1020/screen_state
-    chown system system /sys/devices/soc/soc:fpc_fpc1020/screen_state
-    chmod 0660 /sys/devices/soc/soc:fpc_fpc1020/hw_reset
-    chown system system /sys/devices/soc/soc:fpc_fpc1020/hw_reset
+    chmod 0664 /sys/devices/platform/soc/soc:fpc_fpc1020/irq
+    chown system system /sys/devices/platform/soc/soc:fpc_fpc1020/irq
+    chmod 0660 /sys/devices/platform/soc/soc:fpc_fpc1020/report_home
+    chown system system /sys/devices/platform/soc/soc:fpc_fpc1020/report_home
+    chmod 0660 /sys/devices/platform/soc/soc:fpc_fpc1020/report_key
+    chown system system /sys/devices/platform/soc/soc:fpc_fpc1020/report_key
+    chmod 0660 /sys/devices/platform/soc/soc:fpc_fpc1020/update_info
+    chown system system /sys/devices/platform/soc/soc:fpc_fpc1020/update_info
+    chmod 0660 /sys/devices/platform/soc/soc:fpc_fpc1020/screen_state
+    chown system system /sys/devices/platform/soc/soc:fpc_fpc1020/screen_state
+    chmod 0660 /sys/devices/platform/soc/soc:fpc_fpc1020/hw_reset
+    chown system system /sys/devices/platform/soc/soc:fpc_fpc1020/hw_reset
 
     # NFC, ruanbanmao add for 15801 nfc. 2015/10/19
     chmod 0666 /dev/pn54x
@@ -337,10 +237,10 @@ on boot
     chmod 666 /sys/class/leds/led:switch_0/brightness
 
     # Proximity state
-    chown system system /sys/devices/soc/soc:fpc_fpc1020/proximity_state
-    chmod 0660 /sys/devices/soc/soc:fpc_fpc1020/proximity_state
-    chown system system /sys/devices/soc/soc:goodix_fp/proximity_state
-    chmod 0660 /sys/devices/soc/soc:goodix_fp/proximity_state
+    chown system system /sys/devices/platform/soc/soc:fpc_fpc1020/proximity_state
+    chmod 0660 /sys/devices/platform/soc/soc:fpc_fpc1020/proximity_state
+    chown system system /sys/devices/platform/soc/soc:goodix_fp/proximity_state
+    chmod 0660 /sys/devices/platform/soc/soc:goodix_fp/proximity_state
 
     # For KeyDisabler
     chown system system /sys/module/fpc1020_tee/parameters/ignor_home_for_ESD
@@ -349,12 +249,10 @@ on boot
 on charger
     start dashd
     start vendor.power_off_alarm
-    setprop sys.usb.configfs 1
 
     # Enable UFS powersaving
-    write /sys/devices/soc/${ro.boot.bootdevice}/clkscale_enable 1
-    write /sys/devices/soc/${ro.boot.bootdevice}/clkgate_enable 1
-    write /sys/module/lpm_levels/parameters/sleep_disabled N
+    write /sys/devices/platform/soc/${ro.boot.bootdevice}/clkscale_enable 1
+    write /sys/devices/platform/soc/${ro.boot.bootdevice}/clkgate_enable 1
 
     # disable thermal core control
     write /sys/module/msm_thermal/core_control/enabled 0
@@ -373,14 +271,10 @@ on charger
     write /sys/devices/system/cpu/cpu7/online 0
 
 on property:sys.boot_completed=1
-    # Set runtime stune value
-    write /dev/stune/schedtune.prefer_idle 0
-    write /dev/stune/schedtune.boost 0
 
     # Enable UFS powersaving
-    write /sys/devices/soc/${ro.boot.bootdevice}/clkscale_enable 1
-    write /sys/devices/soc/${ro.boot.bootdevice}/clkgate_enable 1
-    write /sys/module/lpm_levels/parameters/sleep_disabled N
+    write /sys/devices/platform/soc/${ro.boot.bootdevice}/clkscale_enable 1
+    write /sys/devices/platform/soc/${ro.boot.bootdevice}/clkgate_enable 1
 
     # Setup final cpuset
     write /dev/cpuset/top-app/cpus 0-7
@@ -388,14 +282,6 @@ on property:sys.boot_completed=1
     write /dev/cpuset/background/cpus 0-1
     write /dev/cpuset/system-background/cpus 0-3
     write /dev/cpuset/restricted/cpus 0-3
-
-    # Tune FS for runtime
-    write /sys/block/sda/queue/read_ahead_kb 128
-    write /sys/block/sdf/queue/read_ahead_kb 128
-
-    # WDSP FW boot sysfs node used by STHAL
-    chown media audio /sys/kernel/wdsp0/boot
-    chown media audio /sys/kernel/wcd_cpe0/fw_name
 
     # Let kernel know our image version/variant/crm_version
     write /sys/devices/soc0/select_image 10
@@ -418,23 +304,10 @@ service init-devstart-sh /vendor/bin/init.devstart.sh
     group root radio
     oneshot
 
-service irsc_util /vendor/bin/irsc_util "/vendor/etc/sec_config"
-    class core
-    user root
-    oneshot
-    writepid /dev/cpuset/system-background/tasks
-
 service vendor.adsprpcd /vendor/bin/adsprpcd
     class main
     user media
     group media
-    writepid /dev/cpuset/system-background/tasks
-
-service vendor.cnss-daemon /vendor/bin/cnss-daemon -n -l
-    class late_start
-    user system
-    group system inet net_admin wifi
-    capabilities NET_ADMIN
     writepid /dev/cpuset/system-background/tasks
 
 service vendor.init-radio-sh /vendor/bin/init.radio.sh
@@ -442,10 +315,6 @@ service vendor.init-radio-sh /vendor/bin/init.radio.sh
     user root
     group root system radio
     oneshot
-    writepid /dev/cpuset/system-background/tasks
-
-service vendor.netmgrd /vendor/bin/netmgrd
-    class main
     writepid /dev/cpuset/system-background/tasks
 
 service vendor.pd_mapper /vendor/bin/pd-mapper
@@ -495,22 +364,10 @@ service vendor.qseecomd /vendor/bin/qseecomd
     group root
     writepid /dev/cpuset/system-background/tasks
 
-service vendor.rmt_storage /vendor/bin/rmt_storage
-    class core
-    user root
-    shutdown critical
-    ioprio rt 0
-    writepid /dev/cpuset/system-background/tasks
-
 service vendor.sensors.qti /vendor/bin/sensors.qti
     class core
     user system
     group system
-    writepid /dev/cpuset/system-background/tasks
-
-service vendor.tftp_server /vendor/bin/tftp_server
-    class core
-    user root
     writepid /dev/cpuset/system-background/tasks
 
 service vendor.thermal-engine /vendor/bin/thermal-engine

@@ -5843,26 +5843,30 @@ case "$target" in
 
         # online CPU0
         echo 1 > /sys/devices/system/cpu/cpu0/online
-	# configure governor settings for little cluster
-	echo "schedutil" > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
-	echo 500 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/up_rate_limit_us
-	echo 20000 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/down_rate_limit_us
-    echo 0 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/iowait_boost_enable 
-        # online CPU4
+        # configure governor settings for little cluster
+        echo "schedutil" > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
+        echo 0 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/up_rate_limit_us
+        echo 0 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/down_rate_limit_us
+
+        # configure governor settings for big cluster
+        echo "schedutil" > /sys/devices/system/cpu/cpufreq/policy4/scaling_governor
+        echo 0 > /sys/devices/system/cpu/cpufreq/policy4/schedutil/up_rate_limit_us
+        echo 0 > /sys/devices/system/cpu/cpufreq/policy4/schedutil/down_rate_limit_us
+
+        # bring all cores online
+        echo 1 > /sys/devices/system/cpu/cpu0/online
+        echo 1 > /sys/devices/system/cpu/cpu1/online
+        echo 1 > /sys/devices/system/cpu/cpu2/online
+        echo 1 > /sys/devices/system/cpu/cpu3/online
         echo 1 > /sys/devices/system/cpu/cpu4/online
-	# configure governor settings for big cluster
-	echo "schedutil" > /sys/devices/system/cpu/cpufreq/policy4/scaling_governor
-	echo 500 > /sys/devices/system/cpu/cpufreq/policy4/schedutil/up_rate_limit_us
-	echo 20000 > /sys/devices/system/cpu/cpufreq/policy4/schedutil/down_rate_limit_us
-    echo 0 > /sys/devices/system/cpu/cpufreq/policy4/schedutil/iowait_boost_enable 
+        echo 1 > /sys/devices/system/cpu/cpu5/online
+        echo 1 > /sys/devices/system/cpu/cpu6/online
+        echo 1 > /sys/devices/system/cpu/cpu7/online
 
         # re-enable thermal and BCL hotplug
         echo 1 > /sys/module/msm_thermal/core_control/enabled
 
-	# Set runtime stune value
-	echo 0 > /dev/stune/schedtune.prefer_idle
-
-        for cpubw in /sys/class/devfreq/*qcom,cpubw*
+        for cpubw in /sys/devices/platform/soc/*qcom,cpubw*/devfreq/*qcom,cpubw*
         do
             echo "bw_hwmon" > $cpubw/governor
             echo 50 > $cpubw/polling_interval
@@ -5880,13 +5884,15 @@ case "$target" in
             echo 1600 > $cpubw/bw_hwmon/idle_mbps
         done
 
-        for memlat in /sys/class/devfreq/*qcom,memlat-cpu*
+        for memlat in /sys/devices/platform/soc/*qcom,memlat-cpu*/devfreq/*qcom,memlat-cpu*
         do
             echo "mem_latency" > $memlat/governor
             echo 10 > $memlat/polling_interval
             echo 400 > $memlat/mem_latency/ratio_ceil
         done
-        echo "cpufreq" > /sys/class/devfreq/soc:qcom,mincpubw/governor
+
+        echo "cpufreq" > /sys/devices/platform/soc/soc:qcom,mincpubw/devfreq/soc:qcom,mincpubw/governor
+
 	if [ -f /sys/devices/soc0/soc_id ]; then
 		soc_id=`cat /sys/devices/soc0/soc_id`
 	else
@@ -5908,27 +5914,11 @@ case "$target" in
 		platform_subtype_id=`cat /sys/devices/soc0/platform_subtype_id`
 	fi
 
-	echo N > /sys/module/lpm_levels/system/pwr/cpu0/ret/idle_enabled
-	echo N > /sys/module/lpm_levels/system/pwr/cpu1/ret/idle_enabled
-	echo N > /sys/module/lpm_levels/system/pwr/cpu2/ret/idle_enabled
-	echo N > /sys/module/lpm_levels/system/pwr/cpu3/ret/idle_enabled
-	echo N > /sys/module/lpm_levels/system/perf/cpu4/ret/idle_enabled
-	echo N > /sys/module/lpm_levels/system/perf/cpu5/ret/idle_enabled
-	echo N > /sys/module/lpm_levels/system/perf/cpu6/ret/idle_enabled
-	echo N > /sys/module/lpm_levels/system/perf/cpu7/ret/idle_enabled
-	echo N > /sys/module/lpm_levels/system/pwr/pwr-l2-dynret/idle_enabled
-	echo N > /sys/module/lpm_levels/system/pwr/pwr-l2-ret/idle_enabled
-	echo N > /sys/module/lpm_levels/system/perf/perf-l2-dynret/idle_enabled
-	echo N > /sys/module/lpm_levels/system/perf/perf-l2-ret/idle_enabled
-	echo N > /sys/module/lpm_levels/parameters/sleep_disabled
-        echo 0-7 > /dev/cpuset/top-app/cpus
-        echo 0-3,6-7 > /dev/cpuset/foreground/cpus
-        echo 0-1 > /dev/cpuset/background/cpus
-        echo 0-3 > /dev/cpuset/system-background/cpus
-        echo 0 > /proc/sys/kernel/sched_boost
-
         # Set Memory parameters
         configure_memory_parameters
+
+        # enable LPM
+        echo N > /sys/module/lpm_levels/parameters/sleep_disabled
     ;;
 esac
 
