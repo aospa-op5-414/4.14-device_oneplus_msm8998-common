@@ -22,6 +22,7 @@
 # HALs
 /(product|system/product)/(lib|lib64)/vendor\.qti\.hardware\.camera\.device@1\.0\.so             u:object_r:same_process_hal_file:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service-custom    u:object_r:hal_fingerprint_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.light@2\.0-service\.oneplus_msm8998            u:object_r:hal_light_default_exec:s0
 
 # Init
 /(vendor|system/vendor)/bin/init\.devstart\.sh                  u:object_r:init-devstart-sh_exec:s0
